@@ -96,10 +96,9 @@ Install Mongo DB
 
 ###Configure Mongo###  
  
-The scripts interact with an external MongoDB to ensure AWS assets are tracked by instance ID. # we need more details
+The scripts interact with an external MongoDB to ensure AWS assets are tracked by instance ID.
  
-Update the Mongo Config 
-Edit mongo_config.py
+Update the Mongo Config (Edit mongo_config.py)  
 
 	# Update Mongo (yes/no)  
 	available='no'  
@@ -145,8 +144,8 @@ These asset groups are used to store all internal/external IP's as well as IP's 
 \** These are only required for environments with VPC's that host multiple applications or environments that are defined by subnets. It is possible to run a single scan of all subnets using a single asset group and then report based on defined asset groups
  
  
-Update Authentication records configuration file
-  2.Modify authentication.py         (The authentication config defines the different authentication records that can be defined in the ad-hoc scans defined with –i option in cmd line. There is a default authentication record that will be used if none other is specified. Records are defined as Windows (win) or Linux (nix) )
+Update Authentication records configuration file (Edit authentication.py)  
+(The authentication config defines the different authentication records that can be defined in the ad-hoc scans defined with –i option in cmd line. There is a default authentication record that will be used if none other is specified. Records are defined as Windows (win) or Linux (nix) )
  
 	# default_auth='LA360USER'  
 	nix_A360USER='280393'  
@@ -155,8 +154,8 @@ Update Authentication records configuration file
 	nix_BUZZSAW='278848'   
 	win_A360USER='279774'   
  
-Update Mail Relay configuration file
-  1.Modify mail_config.py (this is required to send notifications of scans and reports. For EC2 scans it enumerates all instances, by region and identifies small/micro and non-running instances which will be filtered from scanning per AWS terms of use)
+Update Mail Relay configuration file (Edit mail_config.py)  
+(this is required to send notifications of scans and reports. For EC2 scans it enumerates all instances, by region and identifies small/micro and non-running instances which will be filtered from scanning per AWS terms of use)
  
 	#IP address of the mail server
         server='10.151.16.251'                                                                                                                                                                                                                      
@@ -213,7 +212,7 @@ Update  Scan Appliance configuration file
 
 
 
-Scripts Usage:
+##Scripts Usage:##
 
 1. Create asset groups from CSV file
 
