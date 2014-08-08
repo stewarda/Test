@@ -29,10 +29,12 @@ Python dependencies:
 ###Windows Installation:###
  
 Install Python environment
-  1. Install python 32 bit for Windows adding executables to the path (python version 2 is used because version 3 does not support exec file) (can you add the link)
+  1. Install python 32 bit for Windows adding executables to the path (python version 2 is used because version 3 does not support exec file) https://www.python.org/ftp/python/2.7.8/python-2.7.8.msi
   2. Install pip (>python get-pip.py), where get-pip.py was obtained from https://bootstrap.pypa.io/get-pip.py
  
 (optional) Install Eclipse
+
+Once Eclipse has been installed, download extensions for python support:
   *Install PyDev for eclipse (Help -> Install new software) http://pydev.org/updates
   *Configure the python interpreter (Window -> Preferences -> PyDev -> Interpreter -> Python)
  
@@ -90,7 +92,8 @@ Install Pycrypto
 Note: Because dependencies where installed with sudo, python commands that requires the dependencies will have to run with sudo.
  
 Delete config file  
-Delete .qcrc (whats full path ?) this is a config file that is automatically created the first time you run the script and enter username/password and is found in the same directory that the script executes from
+Delete .qcrc (is found in the same directory that the script executes from). 
+'.qcrc' is a config file that is automatically created the first time the script is runned and the user enters a valid username/password for accessing qualys
 
 Install Mongo DB 
 
@@ -152,7 +155,7 @@ These asset groups are used to store all internal/external IP's as well as IP's 
 Update Authentication records configuration file (Edit authentication.py)  
 (The authentication config defines the different authentication records that can be defined in the ad-hoc scans defined with –i option in cmd line. There is a default authentication record that will be used if none other is specified. Records are defined as Windows (win) or Linux (nix) )
  
-	# default_auth='LA360USER'  
+	default='nix_A360USER'
 	nix_A360USER='280393'  
 	nix_ADSKSAAS='278847'  
 	nix_ADSKSAASAWS='285088'  
@@ -295,18 +298,23 @@ This scan does not generate report
 
 5.1 Script excecution 
 
-	python qualys -a scanby -n <number> -s <scanner name> -i <auth name>  
+	python qualys -a scanby -n <number> -s <scanner name> -i <auth name> -m <mail addresses>  
 
 	<number> is the amazon acocunt number to scan  
 	<scanner name> is the scanner to use (as defined in scanner.py)  
-	<auth name> is the authentication name to use (as defined in authentication.py)  
+	<auth name> is the authentication name to use (as defined in authentication.py)
+	<mail addresses> is a comma separated list of email address where the VM and PC report will be send
+			 if 'default' string is provided it will send the email to the default email recipients defined 			 in the file mail_config.py in the attribute 'scan_send_to'
 
-	-i is optional. If not auth name is provided, nix_A360USER is used  
+	-i is optional. If not auth name is provided, nix_A360USER is used 
+	-m is optional. If not provided it will not send the report by email. The report file will be stored in the 				report_output folder
 
 5.2 Example  
 	
 	python qualys.py -a scanby -n 892067615439 -s aws_use_1  
-	python qualys.py -a scanby -n 892067615439 -s aws_use_1 -i WA360USER  
+	python qualys.py -a scanby -n 892067615439 -s aws_use_1 -i WA360USER
+	python qualys.py -a scanby -n 892067615439 -s aws_use_1 -i WA360USER -m default
+	python qualys.py -a scanby -n 892067615439 -s aws_use_1 -i -m recipient1@company.org,recipient2@company.org
 
 
 6 ADHOC External Scan by IP addresses or asset group  
@@ -315,15 +323,19 @@ This scan does not generate report
 
 6.1 Script excecution  
 
-	python qualys -a scanby -t <IP addresses or asset group> -c <aws account> -f <encrypted filename with amazon accounts>  
+	python qualys -a scanby -t <IP addresses or asset group> -c <aws account> -f <encrypted filename with amazon accounts> -m <mail addresses>   
 
 	<IP addresses or asset group> A comma separated list of IP address   
-	<aws account> AWS account number. Is required to validate if the IP address to scan belongs to the AWS account  
+	<aws account> AWS account number. Is required to validate if the IP address to scan belongs to the AWS account  	<mail addresses> is a comma separated list of email address where the VM and PC report will be send
+			 if 'default' string is provided it will send the email to the default email recipients defined 			 in the file mail_config.py in the attribute 'scan_send_to'
 
-	-c is optional only if the scan is by asset group  
+	-c is optional only if the scan is by asset group
+	-m is optional. If not provided it will not send the report by email. The report file will be stored in the 				report_output folder
 
 6.2 Example  
 
 	python qualys.py -a scanby -t 54.197.148.95 -c 892067615439  
-	python qualys.py -a scanby -t A360-Test-External  	
+	python qualys.py -a scanby -t A360-Test-External
+	python qualys.py -a scanby -t 54.197.148.95 -c 892067615439 -m default
+	python qualys.py -a scanby -t A360-Test-External -m recipient1@company.org,recipient2@company.org
   	
