@@ -1,7 +1,7 @@
-QUALYS AUTOMATION:
+#QUALYS AUTOMATION:#
+---
  
-Need to provide some detail as to what and why.
- #############NEEDS TO BE FINISHED########################
+NEEDS TO BE FINISHED: detail as to what and why.
 
 1 – Automate AD-Hoc scanning 
 2 – Address issues with AWS scanning with Qualys. Automatically update asset groups with 
@@ -12,7 +12,7 @@ Need to provide some detail as to what and why.
 # provide details about what pycrypto does in regards to encryption of credentials
  
  
-INSTALLATION:
+##INSTALLATION:##
  
 Dependencies
 Python 2.7.8
@@ -26,7 +26,7 @@ Python dependencies:
                pycrypto: cryptographic functions
  
  
-Windows Installation:
+###Windows Installation:###
  
 Install Python environment
 1. Install python 32 bit for Windows adding executables to the path (python version 2 is used because version 3 does not support exec file) (can you add the link)
@@ -59,7 +59,7 @@ Install Mongo DB 	# need to clarify this
                Run mongo: mongod.exe --dbpath C:\Mongo\data
  
  
-Linux Installation: (verified on A360 hardened CentOS 6.5)
+###Linux Installation: (verified on A360 hardened CentOS 6.5)###
  
 Install dependencies
 1.            sudo easy_install pip
@@ -92,13 +92,13 @@ The scripts interact with an external MongoDB to ensure AWS assets are tracked b
  
 Update the Mongo Config 
 1 edit the file mongo_config.py (provide full path)
- 
-               available='no'                                           				If value is 'yes', the script will update the mongo database, other values will ignore the ddatabase
-               ip='127.0.0.1'                                           				IP values where the MongoDB is locates
-               port=27017                                                				Port where is running the mongo service
-               client_name='MyAWSInfo'                                              	Name of the client/database in mongo                                
-               collection_name='ec2_info'                                       	Collection name where instance info is stored
-               collection_timestamp='ec2_time'                             	Collection name where the timestamp of the las updated info is stores
+
+|available='no' | If value is 'yes',the script will update the mongo database, other values will ignore the database|
+|ip='127.0.0.1' | IP values where the MongoDB is locates|
+|port=27017     | Port where is running the mongo service|
+|client_name='MyAWSInfo' | Name of the client/database in mongo|                                
+|collection_name='ec2_info'| Collection name where instance info is stored|
+|collection_timestamp='ec2_time' | Collection name where the timestamp of the las updated info is stores|
  
  
 Build Configuration Files
