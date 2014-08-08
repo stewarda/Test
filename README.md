@@ -226,16 +226,9 @@ Organization | Environment | Product | Account Type | Existing AG |
 ----------- | ------------- | --- | ------ | ---------------------|
 The Autodesk unit that owns the assets (ACS/ A360/ EIS etc) | The environment that the assets reside in (Production/ Stage/ Development) | The name of the product to which the assets belong  | Where the assets reside (VPC/ EC2) blank is datacenter | If there is an existing asset group that contains Ips and you want to migrate to the new 	standard, define the group name and IP's will be added to the new group |
 	
-	
-	
-	Organization:  
-	Environment:   
-	Product: 
-	Account Type:  
-	Existing AG: (optional):  
 
 1.1 Script excecution  
-	
+```python	
 	python qualys.py -a csv -f <csv file>  
 
 	-f specifies the name of the .csv file containing the information about the asset groups  
