@@ -28,21 +28,22 @@ Python dependencies:
 ###Windows Installation:###
  
 Install Python environment
-1. Install python 32 bit for Windows adding executables to the path (python version 2 is used because version 3 does not support exec file) (can you add the link)
-2. Install pip (>python get-pip.py), where get-pip.py was obtained from https://bootstrap.pypa.io/get-pip.py
+  1. Install python 32 bit for Windows adding executables to the path (python version 2 is used because version 3 does not support exec file) (can you add the link)
+  2. Install pip (>python get-pip.py), where get-pip.py was obtained from https://bootstrap.pypa.io/get-pip.py
  
 (optional) Install Eclipse
-3. Install PyDev for eclipse (Help -> Install new software) http://pydev.org/updates
-4. Configure the python interpreter (Window -> Preferences -> PyDev -> Interpreter -> Python)
+  *Install PyDev for eclipse (Help -> Install new software) http://pydev.org/updates
+  *Configure the python interpreter (Window -> Preferences -> PyDev -> Interpreter -> Python)
  
 Install dependencies
-5. Go to python scripts folder (C:\Python27\scripts) and run: 
-               pip install qualysapi  
-               pip install boto                 
-               pip install netaddr
-               pip install jinja2
-               pip install lxml
-               pip install pymongo
+  5. Go to python scripts folder (C:\Python27\scripts) and run: 
+
+	pip install qualysapi  
+	pip install boto                 
+	pip install netaddr
+	pip install jinja2
+	pip install lxml
+	pip install pymongo
  
 Install compiler (pycrypto requires to be compiled) 
 6. Install MS Visual C++ 2008 express edition          (http://go.microsoft.com/?linkid=7729279)
@@ -85,7 +86,9 @@ Delete config file
 Install Mongo DB
 4.sudo pip install pymongo
 
-Configure Mongo
+##DEFINE CONFIGURATION:##
+
+###Configure Mongo###
  
 The scripts interact with an external MongoDB to ensure AWS assets are tracked by instance ID. # we need more details
  
@@ -111,9 +114,9 @@ Update the Mongo Config
 	collection_timestamp='ec2_time' 
  
  
-Build Configuration Files
+###Build Configuration Files###
  
-Update Asset Groups  configuration file
+Update Asset Groups configuration file
   1. Edit asset_groups.py   (These asset groups are used to store all internal/external IP's as well as IP's for ad-hoc scans)
  	
  	# Asset group name that holds all external IP addresses in EC2
@@ -175,43 +178,40 @@ Update Report Template configuration file
 Update  Scan Profile configuration file
   1.Modify scan_profile.py (Defines the scan option profiles used for VM and PC scans and the policy ID's used for PC reporting)
  
-               #PC Scan Option Profile: A360 Policy Compliance Scan
-               pc_scan='739787'
- 
-               #VM Scan Option Profile: Step 4 Authenticated Scan
-               internal_scan='462100'
+	#VM Scan Option Profile: Step 4 Authenticated Scan
+	internal_scan='462100'
                
-		#VM Scan Option Profile: External Scan Ahsans Options
-               external_scan='736834'
+	#VM Scan Option Profile: External Scan Ahsans Options
+	external_scan='736834'
+	
+	#PC Scan Option Profile: A360 Policy Compliance Scan
+	pc_scan='739787'
  
-               #Policies
-               #A360 - CentOS 6.5, v1.0.0 (CIS based policy)
-               policy_centos65='88347'
-               policy_centos65name='CentOS 6.5'
+	#Policies
+	#A360 - CentOS 6.5, v1.0.0 (CIS based policy)
+	policy_centos65='88347'
+	policy_centos65name='CentOS 6.5'
  
-               #A360 - Windows Server 2008R2 v1.0.0 (CIS based policy)
-               policy_win2008R2='85700'
-               policy_win2008R2name='Windows 2008R2'
+	#A360 - Windows Server 2008R2 v1.0.0 (CIS based policy)
+	policy_win2008R2='85700'
+	policy_win2008R2name='Windows 2008R2'
 
 Update  Scan Appliance configuration file
-1. scanner.py  (Defines the relationship between scan appliance name and appliance ID and is referenced using the –s switch from the command line)
+  1.scanner.py  (Defines the relationship between scan appliance name and appliance ID and is referenced using the –s switch from the command line)
 
-dc_ashburn='20933'
-dc_sanfrancisco='24028'
-dc_santaclara='24028'
-aws_use_1='70647'
-aws_usw_1='77247'
+	a360_dc_ashburn='20933'
+	a360_dc_sanfrancisco='24028'
+	a360_dc_santaclara='24028'
+	aws_use_1='70647'
+	aws_usw_1='77247'
 
-# I assume that I can change these names, its only the ID that’s important ? The reason is that if EIS uses this they also have a Santa Clara datacenter so I would need something like:
-
-a360_dc_ashburn='20933'
 
 
 Scripts Usage:
 
 1. Create asset groups from CSV file
 
-Asset Group CSV file requirements		(The script assume there is a header in the first line, which is ignored in the script execution)
+Asset Group CSV file requirements (The script assume there is a header in the first line, which is ignored in the script execution)
 
 	CSV fields: Organization,Environment,Product,Account Type,Existing AG
 	Organization: The Autodesk unit that owns the assets (ACS/A360/EIS etc)
