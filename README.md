@@ -35,8 +35,8 @@ Install Python environment
   *Install PyDev for eclipse (Help -> Install new software) http://pydev.org/updates
   *Configure the python interpreter (Window -> Preferences -> PyDev -> Interpreter -> Python)
  
-Install dependencies
-  5. Go to python scripts folder (C:\Python27\scripts) and run: 
+Install dependencies  
+Go to python scripts folder (C:\Python27\scripts) and run: 
 
 	pip install qualysapi    
 	pip install boto                
@@ -46,17 +46,18 @@ Install dependencies
 	pip install pymongo  
  
 Install compiler (pycrypto requires to be compiled) 
-6. Install MS Visual C++ 2008 express edition          (http://go.microsoft.com/?linkid=7729279)
+Install MS Visual C++ 2008 express edition [download](http://go.microsoft.com/?linkid=7729279)
  
 Install pycrypto
-7.            pip install pycrypto
+
+	pip install pycrypto
  
 Delete config file
-8. Delete config.ini this is a config file that is automatically created the first time you run the script and enter username/password and is found in the same directory that the script executes from
+Delete config.ini this is a config file that is automatically created the first time you run the script and enter username/password and is found in the same directory that the script executes from
 
 Install Mongo DB
           
-	unzip mongo distribution  
+	unzip mongo distribution    
 	
 	# Run mongo:  
 	mongod.exe --dbpath C:\Mongo\data  
@@ -85,59 +86,59 @@ Install Pycrypto
  
 Note: Because dependencies where installed with sudo, python commands that requires the dependencies will have to run with sudo.
  
-Delete config file
-3. Delete .qcrc (whats full path ?) this is a config file that is automatically created the first time you run the script and enter username/password and is found in the same directory that the script executes from
+Delete config file  
+Delete .qcrc (whats full path ?) this is a config file that is automatically created the first time you run the script and enter username/password and is found in the same directory that the script executes from
 
-Install Mongo DB
-4.sudo pip install pymongo
+Install Mongo DB  
+	sudo pip install pymongo  
 
-##DEFINE CONFIGURATION:##
+##DEFINE CONFIGURATION:##  
 
-###Configure Mongo###
+###Configure Mongo###  
  
 The scripts interact with an external MongoDB to ensure AWS assets are tracked by instance ID. # we need more details
  
 Update the Mongo Config 
-  1. Edit mongo_config.py
+Edit mongo_config.py
 
-	# Update Mongo (yes/no)
-	available='no' 
+	# Update Mongo (yes/no)  
+	available='no'  
 	
-	# MongoDB IP address
-	ip='127.0.0.1'
+	# MongoDB IP address  
+	ip='127.0.0.1'  
 	
-	# MongoDB Port
-	port=27017
+	# MongoDB Port  
+	port=27017  
+	 
+	# Name of the client/database in MongoDB  
+	client_name='MyAWSInfo'  
 	
-	# Name of the client/database in MongoDB
-	client_name='MyAWSInfo'
+	# Collection name where instance info is stored  
+	collection_name='ec2_info'  
 	
-	# Collection name where instance info is stored
-	collection_name='ec2_info'
-	
-	# Collection name where timestamp of last update for an instance is stored
-	collection_timestamp='ec2_time' 
+	# Collection name where timestamp of last update for an instance is stored  
+	collection_timestamp='ec2_time'  
  
  
 ###Build Configuration Files###
  
-Update Asset Groups configuration file
-  1. Edit asset_groups.py   (These asset groups are used to store all internal/external IP's as well as IP's for ad-hoc scans)
+Update Asset Groups configuration file (Edit asset_groups.py)  
+These asset groups are used to store all internal/external IP's as well as IP's for ad-hoc scans  
  	
- 	# Asset group name that holds all external IP addresses in EC2
-       	external='A360-Test-External'
+ 	# Asset group name that holds all external IP addresses in EC2  
+       	external='A360-Test-External'  
        	
-       	# Asset group name for storing all internal IP addresses in EC2
-        internal='A360-Test-Internal'	
+       	# Asset group name for storing all internal IP addresses in EC2  
+        internal='A360-Test-Internal'	  
         
-        # Asset group name that holds all ip addresses for ad-hoc scans
-        adhoc='A360 - AdHoc Scanning'
+        # Asset group name that holds all ip addresses for ad-hoc scans  
+        adhoc='A360 - AdHoc Scanning'  
         
-        # Asset group id for adhoc scan group
-        adhoc_id='1432205'               
+        # Asset group id for adhoc scan group  
+        adhoc_id='1432205'                
  
-	# CSV of VPC accounts hosting multiple products
-        vpc='A360-PRODUCTION-VPC East-EC2,A360-STAGE-VPC West-EC2'
+	# CSV of VPC accounts hosting multiple products  
+        vpc='A360-PRODUCTION-VPC East-EC2,A360-STAGE-VPC West-EC2'  
  
  
 \*ID is used because Qualys API requires the id for launching the report based on an asset group. It does not support asset group names
@@ -147,12 +148,12 @@ Update Asset Groups configuration file
 Update Authentication records configuration file
   2.Modify authentication.py         (The authentication config defines the different authentication records that can be defined in the ad-hoc scans defined with –i option in cmd line. There is a default authentication record that will be used if none other is specified. Records are defined as Windows (win) or Linux (nix) )
  
-               # default_auth='LA360USER'
-               nix_A360USER='280393'
-               nix_ADSKSAAS='278847'
-               nix_ADSKSAASAWS='285088'
-               nix_BUZZSAW='278848'
-               win_A360USER='279774'
+	# default_auth='LA360USER'  
+	nix_A360USER='280393'  
+	nix_ADSKSAAS='278847'  
+	nix_ADSKSAASAWS='285088'  
+	nix_BUZZSAW='278848'   
+	win_A360USER='279774'   
  
 Update Mail Relay configuration file
   1.Modify mail_config.py (this is required to send notifications of scans and reports. For EC2 scans it enumerates all instances, by region and identifies small/micro and non-running instances which will be filtered from scanning per AWS terms of use)
