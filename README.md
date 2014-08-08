@@ -83,7 +83,7 @@ Delete config file
 3. Delete .qcrc (whats full path ?) this is a config file that is automatically created the first time you run the script and enter username/password and is found in the same directory that the script executes from
 
 Install Mongo DB
-4.            sudo pip install pymongo
+4.sudo pip install pymongo
 
 Configure Mongo
  
@@ -128,12 +128,12 @@ Update Asset Groups  configuration file
         # Asset group id for adhoc scan group
         adhoc_id='1432205'               
  
- 	# CSV of VPC accounts hosting multiple products
+	# CSV of VPC accounts hosting multiple products
         vpc='A360-PRODUCTION-VPC East-EC2,A360-STAGE-VPC West-EC2'
  
  
-*ID is used because Qualys API requires the id for launching the report based on an asset group. It does not support asset group names
-** These are only required for environments with VPC's that host multiple applications or environments that are defined by subnets. It is possible to run a single scan of all subnets using a single asset group and then report based on defined asset groups
+\*ID is used because Qualys API requires the id for launching the report based on an asset group. It does not support asset group names
+\** These are only required for environments with VPC's that host multiple applications or environments that are defined by subnets. It is possible to run a single scan of all subnets using a single asset group and then report based on defined asset groups
  
  
 Update Authentication records configuration file
