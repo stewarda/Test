@@ -240,13 +240,16 @@ Asset Group CSV file requirements (The script assume there is a header in the fi
 2 Encrypt AWS account file
 Encrypt AWS credentials CSV file requirements (The script assume there is a header in the first line, which is ignored in the script execution)  
   
->CSV fields: AccountName,AccountNumber,Key,Secret,Asset Group Name  
->  
-> AccountName: Name of the AWS account (example Stage_Storage)  
-> AccountNumber: The account number of the AWS account  
-> Key: The iam key for the AWS account  
-> Secret: The iam secret for the AWS account  
-> (optional) Asset Group Name: Defines the name of the asset group that will be updated  
+ CSV fields: 
+ 
+ |AccountName|AccountNumber|Key|Secret|Asset Group Name|
+ |-----------|-------------|---|------|----------------|
+ |Name of the AWS account|The account number of the AWS account|The iam key for the AWS account|The iam secret for the AWS account |
+AccountName:  (example Stage_Storage)  
+AccountNumber:   
+Key:   
+Secret:  
+(optional) Asset Group Name: Defines the name of the asset group that will be updated  
 
 
 2.1 Script excecution  
