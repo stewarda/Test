@@ -239,25 +239,24 @@ Asset Group CSV file requirements (The script assume there is a header in the fi
 
 
 2 Encrypt AWS account file
-
 Encrypt AWS credentials CSV file requirements (The script assume there is a header in the first line, which is ignored in the script execution)  
-
-	CSV fields: AccountName,AccountNumber,Key,Secret,Asset Group Name  
-
-	AccountName: Name of the AWS account (example Stage_Storage)  
-	AccountNumber: The account number of the AWS account  
-	Key: The iam key for the AWS account  
-	Secret: The iam secret for the AWS account  
-	(optional) Asset Group Name: Defines the name of the asset group that will be updated  
+  
+>CSV fields: AccountName,AccountNumber,Key,Secret,Asset Group Name  
+>  
+> AccountName: Name of the AWS account (example Stage_Storage)  
+> AccountNumber: The account number of the AWS account  
+> Key: The iam key for the AWS account  
+> Secret: The iam secret for the AWS account  
+> (optional) Asset Group Name: Defines the name of the asset group that will be updated  
 
 
 2.1 Script excecution  
 	
->	python qualys.py -a cipher -f <csv file>  
->
->	-f specifies the name of the .csv file containing the information about the AWS accounts  
+	python qualys.py -a cipher -f <csv file>  
+	-f specifies the name of the .csv file containing the information about the AWS accounts  
 
-After running the commmand, a new file is created with the name <csv file>.enc. This is then deleted the clear text file (filesystem wipe)  
+	After running the commmand, a new file is created with the name <csv file>.enc. This is then deleted the clear  		text file (filesystem wipe)  
 
-2.2 Example  
+2.2 Example 
+
 	python qualys.py -a cipher -f AWS-Credentials.csv  
