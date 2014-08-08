@@ -90,7 +90,7 @@ Configure Mongo
 The scripts interact with an external MongoDB to ensure AWS assets are tracked by instance ID. # we need more details
  
 Update the Mongo Config 
-1 edit the file mongo_config.py (provide full path)
+⋅⋅1. Edit mongo_config.py
 
 	# Update Mongo (yes/no)
 	available='no' 
@@ -114,14 +114,22 @@ Update the Mongo Config
 Build Configuration Files
  
 Update Asset Groups  configuration file
-1. Modify asset_groups.py   (These asset groups are used to store all internal/external IP's as well as IP's for ad-hoc scans)
+⋅⋅1. Edit asset_groups.py   (These asset groups are used to store all internal/external IP's as well as IP's for ad-hoc scans)
+ 	
+ 	# Asset group name that holds all external IP addresses in EC2
+       	external='A360-Test-External'
+       	
+       	# Asset group name for storing all internal IP addresses in EC2
+        internal='A360-Test-Internal'	
+        
+        # Asset group name that holds all ip addresses for ad-hoc scans
+        adhoc='A360 - AdHoc Scanning'
+        
+        # Asset group id for adhoc scan group
+        adhoc_id='1432205'               
  
-               external='A360-Test-External'	Asset group name for storing all external IP addresses in EC2             
-               internal='A360-Test-Internal'	Asset group name for storing all internal IP addresses in EC2             
-               adhoc='A360 - AdHoc Scanning'	Asset group name for storing ip address for ad-hoc scans
-               adhoc_id='1432205'               Asset group id for for storing ip address for ad-hoc scans*
- 
-               vpc='A360-PRODUCTION-VPC East-EC2,A360-STAGE-VPC West-EC2'  List separated by comma of the VPC asset groups names**
+ 	# CSV of VPC accounts hosting multiple products
+        vpc='A360-PRODUCTION-VPC East-EC2,A360-STAGE-VPC West-EC2'
  
  
 *ID is used because Qualys API requires the id for launching the report based on an asset group. It does not support asset group names
