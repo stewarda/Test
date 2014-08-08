@@ -13,16 +13,17 @@ provide details about what pycrypto does in regards to encryption of credentials
  
 ##INSTALLATION:##
  
-Dependencies
-Python 2.7.8
-Python dependencies:
-               qualysapi: API of Vulnerability scanner  
-               boto: Amazon API  
-               netaddr: Used for check rules in the security groups  
-               jinja2: Report generation  
-               lxml: xml parser  
-               pymongo: mongo db interaction  
-               pycrypto: cryptographic functions  
+Dependencies  
+	Python 2.7.8  
+
+Python dependencies:  
+               qualysapi: 		(API for Qualys vulnerability scanner)  
+               boto: 			(Amazon API) 
+               netaddr: 		(Used for check rules in the security groups)  
+               jinja2: 			(Report generation)   
+               lxml: 			(xml parser)   
+               pymongo: 		(mongo db interaction)   
+               pycrypto: 		(cryptographic functions)   
  
  
 ###Windows Installation:###
@@ -48,14 +49,14 @@ Go to python scripts folder (C:\Python27\scripts) and run:
 Install compiler (pycrypto requires to be compiled) 
 Install MS Visual C++ 2008 express edition [download](http://go.microsoft.com/?linkid=7729279)
  
-Install pycrypto
+Install pycrypto  
 
 	pip install pycrypto
  
-Delete config file
+Delete config file  
 Delete config.ini this is a config file that is automatically created the first time you run the script and enter username/password and is found in the same directory that the script executes from
 
-Install Mongo DB
+Install Mongo DB  
           
 	unzip mongo distribution    
 	
@@ -241,25 +242,19 @@ The script assume there is a header in the first line, which is ignored in the s
 
 CSV fields: AccountName,AccountNumber,Key,Secret,Asset Group Name
 
-AccountName: 
-Name of the AWS account (example Stage_Storage)
-AccountNumber:
-The account number of the AWS account
-Key:
-The iam key for the AWS account
-Secret:
-The iam secret for the AWS account
-Asset Group Name: (optional)
-Defines the name of the asset group that will be updated
-# this should be required
+	AccountName: Name of the AWS account (example Stage_Storage)  
+	AccountNumber: The account number of the AWS account  
+	Key: The iam key for the AWS account  
+	Secret: The iam secret for the AWS account  
+	(optional) Asset Group Name: Defines the name of the asset group that will be updated  
 
 
-2.1 Script excecution
-python qualys.py -a cipher -f <csv file>
+2.1 Script excecution  
+	python qualys.py -a cipher -f <csv file>  
 
--f specifies the name of the .csv file containing the information about the AWS accounts
+	-f specifies the name of the .csv file containing the information about the AWS accounts  
 
-After running the commmand, a new file is created with the name <csv file>.enc. This is then deleted the clear text file (filesystem wipe)
+After running the commmand, a new file is created with the name <csv file>.enc. This is then deleted the clear text file (filesystem wipe)  
 
-2.2 Example
-python qualys.py -a cipher -f AWS-Credentials.csv
+2.2 Example  
+	python qualys.py -a cipher -f AWS-Credentials.csv  
