@@ -9,7 +9,7 @@ NEEDS TO BE FINISHED: detail as to what and why.
  
 4 – Can you provide exact details of what the script does in regards to Mongo
  
-# provide details about what pycrypto does in regards to encryption of credentials
+provide details about what pycrypto does in regards to encryption of credentials
  
  
 ##INSTALLATION:##
@@ -92,7 +92,7 @@ The scripts interact with an external MongoDB to ensure AWS assets are tracked b
  
 Update the Mongo Config 
 1 edit the file mongo_config.py (provide full path)
-
+------------------------------------
 |available='no' | If value is 'yes',the script will update the mongo database, other values will ignore the database|
 |ip='127.0.0.1' | IP values where the MongoDB is locates|
 |port=27017     | Port where is running the mongo service|
