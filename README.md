@@ -242,9 +242,9 @@ Encrypt AWS credentials CSV file requirements (The script assume there is a head
   
  CSV fields: 
  
- | AccountName | AccountNumber | Key | Secret | Asset Group Name | 
- | ----------- | ------------- | --- | ------ | ---------------- | 
- | Name of the AWS account | The account number of the AWS account | The iam key for the AWS account | The iam secret for the AWS account |
+ | AccountName | AccountNumber | Key | Secret | Asset Group Name |    
+ | ----------- | ------------- | --- | ------ | ---------------- |     
+ | Name of the AWS account | The account number of the AWS account | The iam key for the AWS account | The iam secret for the AWS account |   
  
 AccountName:  (example Stage_Storage)  
 AccountNumber:   
