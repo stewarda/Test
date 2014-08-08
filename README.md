@@ -219,28 +219,28 @@ Update  Scan Appliance configuration file
 
 Asset Group CSV file requirements (The script assume there is a header in the first line, which is ignored in the script execution)
 
-	CSV fields: Organization,Environment,Product,Account Type,Existing AG
-	Organization: The Autodesk unit that owns the assets (ACS/A360/EIS etc)
-	Environment: The environment that the assets reside in (Production/Stage/Development)
-	Product: The name of the product to which the assets belong
-	Account Type: Where the assets reside (VPC/EC2/ blank is datacenter)
-	Existing AG: (optional): If there is an existing asset group that contains Ips and you want to migrate to the new standard, define the group name and IP's will be added to the new group
+	CSV fields: Organization,Environment,Product,Account Type,Existing AG  
+	
+	Organization: The Autodesk unit that owns the assets (ACS/A360/EIS etc)  
+	Environment: The environment that the assets reside in (Production/Stage/Development)  
+	Product: The name of the product to which the assets belong  
+	Account Type: Where the assets reside (VPC/EC2/ blank is datacenter)  
+	Existing AG: (optional): If there is an existing asset group that contains Ips and you want to migrate to the new 	standard, define the group name and IP's will be added to the new group  
 
 1.1 Script excecution
-python qualys.py -a csv -f <csv file>
+	python qualys.py -a csv -f <csv file>  
 
--f specifies the name of the .csv file containing the information about the asset groups
+	-f specifies the name of the .csv file containing the information about the asset groups  
 
 1.2 Example
-python qualys.py -a csv -f myassetgroups.csv
+	python qualys.py -a csv -f myassetgroups.csv  
 
 
 2 Encrypt AWS account file
 
-Encrypt AWS credentials CSV file requirements
-The script assume there is a header in the first line, which is ignored in the script execution
+Encrypt AWS credentials CSV file requirements (The script assume there is a header in the first line, which is ignored in the script execution)  
 
-CSV fields: AccountName,AccountNumber,Key,Secret,Asset Group Name
+	CSV fields: AccountName,AccountNumber,Key,Secret,Asset Group Name  
 
 	AccountName: Name of the AWS account (example Stage_Storage)  
 	AccountNumber: The account number of the AWS account  
