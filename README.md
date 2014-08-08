@@ -323,6 +323,7 @@ This scan does not generate report
 	-c is optional only if the scan is by asset group  
 
 6.2 Example  
+
 	python qualys.py -a scanby -t 54.197.148.95 -c 892067615439  
 	python qualys.py -a scanby -t A360-Test-External  	
   	
