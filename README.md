@@ -227,12 +227,14 @@ Asset Group CSV file requirements (The script assume there is a header in the fi
 	Account Type: Where the assets reside (VPC/EC2/ blank is datacenter)  
 	Existing AG: (optional): If there is an existing asset group that contains Ips and you want to migrate to the new 	standard, define the group name and IP's will be added to the new group  
 
-1.1 Script excecution
-	python qualys.py -a csv -f <csv file>  
+1.1 Script excecution  
+	
+>	python qualys.py -a csv -f <csv file>  
+>
+>	-f specifies the name of the .csv file containing the information about the asset groups  
 
-	-f specifies the name of the .csv file containing the information about the asset groups  
+1.2 Example  
 
-1.2 Example
 	python qualys.py -a csv -f myassetgroups.csv  
 
 
@@ -250,9 +252,10 @@ Encrypt AWS credentials CSV file requirements (The script assume there is a head
 
 
 2.1 Script excecution  
-	python qualys.py -a cipher -f <csv file>  
-
-	-f specifies the name of the .csv file containing the information about the AWS accounts  
+	
+>	python qualys.py -a cipher -f <csv file>  
+>
+>	-f specifies the name of the .csv file containing the information about the AWS accounts  
 
 After running the commmand, a new file is created with the name <csv file>.enc. This is then deleted the clear text file (filesystem wipe)  
 
