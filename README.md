@@ -224,7 +224,7 @@ Asset Group CSV file requirements (The script assume there is a header in the fi
 
 Organization | Environment | Product | Account Type | Existing AG |
 ----------- | ------------- | --- | ------ | ---------------------|
-The Autodesk unit that owns the assets (ACS/A360/EIS etc) | The environment that the assets reside in (Production/Stage/Development) | The name of the product to which the assets belong  | Where the assets reside (VPC/EC2/ blank is datacenter) | If there is an existing asset group that contains Ips and you want to migrate to the new 	standard, define the group name and IP's will be added to the new group |
+The Autodesk unit that owns the assets (ACS/ A360/ EIS etc) | The environment that the assets reside in (Production/ Stage/ Development) | The name of the product to which the assets belong  | Where the assets reside (VPC/EC2/ blank is datacenter) | If there is an existing asset group that contains Ips and you want to migrate to the new 	standard, define the group name and IP's will be added to the new group |
 	
 	
 	
@@ -252,7 +252,7 @@ Encrypt AWS credentials CSV file requirements (The script assume there is a head
  
 AccountName | AccountNumber | Key | Secret | Asset Group Name   
 ----------- | ------------- | --- | ------ | ----------------     
-Name of the AWS account | The account number of the AWS account | The iam key for the AWS account | The iam secret for the AWS account | Defines the name of the asset group that will be updated  
+Name of the AWS account | The account number of the AWS account | The IAM key for the AWS account | The IAM secret for the AWS account | Defines the name of the asset group that will be updated  
  
 
 2.1 Script excecution  
