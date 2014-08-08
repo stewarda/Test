@@ -228,7 +228,7 @@ The Autodesk unit that owns the assets (ACS/ A360/ EIS etc) | The environment th
 	
 
 1.1 Script excecution  
-```python	
+	
 	python qualys.py -a csv -f <csv file>  
 
 	-f specifies the name of the .csv file containing the information about the asset groups  
@@ -238,7 +238,8 @@ The Autodesk unit that owns the assets (ACS/ A360/ EIS etc) | The environment th
 	python qualys.py -a csv -f myassetgroups.csv  
 
 
-2 Encrypt AWS account file
+2. Encrypt AWS account file  
+ 
 Encrypt AWS credentials CSV file requirements (The script assume there is a header in the first line, which is ignored in the script execution)  
   
  CSV fields: 
@@ -253,8 +254,75 @@ Name of the AWS account | The account number of the AWS account | The IAM key fo
 	python qualys.py -a cipher -f <csv file>  
 	-f specifies the name of the .csv file containing the information about the AWS accounts  
 
-	After running the commmand, a new file is created with the name <csv file>.enc. This is then deleted the clear  		text file (filesystem wipe)  
+After running the commmand, a new file is created with the name <csv file>.enc. This then deletes the clear  		text file (filesystem wipe)  
 
 2.2 Example 
 
 	python qualys.py -a cipher -f AWS-Credentials.csv  
+	
+3 AWS Instance reporting  
+
+Generates a report showing instance type, whether the security groups allow Qualys access for scanning and whether instances are in a VPC. It reads each amazon account and make different validation including: instance type, access rules from internal scanners, instances in vpc. This report excludes asset groups which are defined like VPC (requires to have asset group config in CSV file for AWS account and have the asset group like vpc in asset_groups.py)
+
+3.1 Script excecution  
+
+	python qualys.py -a report -f <encrypted csv file with AWS accounts>  
+
+	If file is not provided, it will try to use the default one: A360.TREND.DEEP.SVC.csv.enc
+
+3.2 Example  
+	
+	python qualys.py -a report -f A360.TREND.DEEP.SVC.csv.enc  
+	
+4 Update asset group information based on AWS accounts  
+
+It reads each amazon account and update external, internal and asset group info (if avalaible in encrypted csv file with AWS accounts) 
+
+4.1 Script excecution  
+
+	python qualys.py -a update -f <encrypted csv file with AWS accounts>
+
+	If file is not provided, it will try to use the default one: A360.TREND.DEEP.SVC.csv.enc
+
+4.2 Example  
+
+	python qualys.py -a update -f A360.TREND.DEEP.SVC.csv.enc  
+	
+5. ADHOC scan by AWS account number 
+
+Launch an external an internal scan in east and west region for the external and internal asset group
+This scan does not generate report  
+
+5.1 Script excecution 
+
+	python qualys -a scanby -n <number> -s <scanner name> -i <auth name>  
+
+	<number> is the amazon acocunt number to scan  
+	<scanner name> is the scanner to use (as defined in scanner.py)  
+	<auth name> is the authentication name to use (as defined in authentication.py)  
+
+	-i is optional. If not auth name is provided, nix_A360USER is used  
+
+5.2 Example  
+	
+	python qualys.py -a scanby -n 892067615439 -s aws_use_1  
+	python qualys.py -a scanby -n 892067615439 -s aws_use_1 -i WA360USER  
+
+
+6 ADHOC External Scan by IP addresses or asset group  
+
+	Launch an external scan to a list of IP addresses  
+
+6.1 Script excecution  
+
+	python qualys -a scanby -t <IP addresses or asset group> -c <aws account> -f <encrypted filename with amazon accounts>  
+
+	<IP addresses or asset group> A comma separated list of IP address   
+	<aws account> AWS account number. Is required to validate if the IP address to scan belongs to the AWS account  
+
+	-c is optional only if the scan is by asset group  
+
+6.2 Example  
+	python qualys.py -a scanby -t 54.197.148.95 -c 892067615439  
+	python qualys.py -a scanby -t A360-Test-External  	
+  	
