@@ -172,8 +172,8 @@ Update Mail Relay configuration file (Edit mail_config.py)
         scan_text='These report were generated automatically, please DO NOT REPLY'
  
  
-Update Report Template configuration file
-  1.Modify report_templates.py    (Defines the VM and PC templates that will be used for report generation. ID's of the templates can be found in Qualys)
+Update Report Template configuration file (Modify report_templates.py)  
+(Defines the VM and PC templates that will be used for report generation. ID's of the templates can be found in Qualys)
  
 	#VM Report TemplateName: A360 Brief Summary Sev 1-5 (excluding non-running kernels)
         vm_template='1671283'
@@ -181,36 +181,35 @@ Update Report Template configuration file
 	#PC Report Template Name: A360 Benchmark Reference Failed Checks Only
         pc_template='1654795'
  
-Update  Scan Profile configuration file
-  1.Modify scan_profile.py (Defines the scan option profiles used for VM and PC scans and the policy ID's used for PC reporting)
+Update  Scan Profile configuration file  (Modify scan_profile.py)  
+(Defines the scan option profiles used for VM and PC scans and the policy ID's used for PC reporting)  
  
-	#VM Scan Option Profile: Step 4 Authenticated Scan
-	internal_scan='462100'
+	#VM Scan Option Profile: Step 4 Authenticated Scan  
+	internal_scan='462100'  
                
-	#VM Scan Option Profile: External Scan Ahsans Options
-	external_scan='736834'
+	#VM Scan Option Profile: External Scan Ahsans Options  
+	external_scan='736834'  
 	
-	#PC Scan Option Profile: A360 Policy Compliance Scan
-	pc_scan='739787'
+	#PC Scan Option Profile: A360 Policy Compliance Scan  
+	pc_scan='739787'  
  
-	#Policies
-	#A360 - CentOS 6.5, v1.0.0 (CIS based policy)
-	policy_centos65='88347'
-	policy_centos65name='CentOS 6.5'
+	#Policies  
+	#A360 - CentOS 6.5, v1.0.0 (CIS based policy)  
+	policy_centos65='88347'  
+	policy_centos65name='CentOS 6.5'  
  
-	#A360 - Windows Server 2008R2 v1.0.0 (CIS based policy)
-	policy_win2008R2='85700'
-	policy_win2008R2name='Windows 2008R2'
+	#A360 - Windows Server 2008R2 v1.0.0 (CIS based policy)  
+	policy_win2008R2='85700'  
+	policy_win2008R2name='Windows 2008R2'  
 
 Update  Scan Appliance configuration file
   1.scanner.py  (Defines the relationship between scan appliance name and appliance ID and is referenced using the –s switch from the command line)
 
-	a360_dc_ashburn='20933'
-	a360_dc_sanfrancisco='24028'
-	a360_dc_santaclara='24028'
-	aws_use_1='70647'
-	aws_usw_1='77247'
-
+>	a360_dc_ashburn='20933'  
+>	a360_dc_sanfrancisco='24028'  
+>	a360_dc_santaclara='24028'  
+>	aws_use_1='70647'  
+>	aws_usw_1='77247'  
 
 
 ##Scripts Usage:##
@@ -219,19 +218,19 @@ Update  Scan Appliance configuration file
 
 Asset Group CSV file requirements (The script assume there is a header in the first line, which is ignored in the script execution)
 
-	CSV fields: Organization,Environment,Product,Account Type,Existing AG  
-	
-	Organization: The Autodesk unit that owns the assets (ACS/A360/EIS etc)  
-	Environment: The environment that the assets reside in (Production/Stage/Development)  
-	Product: The name of the product to which the assets belong  
-	Account Type: Where the assets reside (VPC/EC2/ blank is datacenter)  
-	Existing AG: (optional): If there is an existing asset group that contains Ips and you want to migrate to the new 	standard, define the group name and IP's will be added to the new group  
+>	CSV fields: Organization,Environment,Product,Account Type,Existing AG  
+>	
+>	Organization: The Autodesk unit that owns the assets (ACS/A360/EIS etc)  
+>	Environment: The environment that the assets reside in (Production/Stage/Development)  
+>	Product: The name of the product to which the assets belong  
+>	Account Type: Where the assets reside (VPC/EC2/ blank is datacenter)  
+>	Existing AG: (optional): If there is an existing asset group that contains Ips and you want to migrate to the new >	standard, define the group name and IP's will be added to the new group  
 
 1.1 Script excecution  
 	
->	python qualys.py -a csv -f <csv file>  
->
->	-f specifies the name of the .csv file containing the information about the asset groups  
+	python qualys.py -a csv -f <csv file>  
+
+	-f specifies the name of the .csv file containing the information about the asset groups  
 
 1.2 Example  
 
