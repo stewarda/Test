@@ -16,13 +16,13 @@ provide details about what pycrypto does in regards to encryption of credentials
 Dependencies
 Python 2.7.8
 Python dependencies:
-               qualysapi: API of Vulnerability scanner
-               boto: Amazon API
-               netaddr: Used for check rules in the security groups
-               jinja2: Report generation
-               lxml: xml parser
-               pymongo: mongo db interaction
-               pycrypto: cryptographic functions
+               qualysapi: API of Vulnerability scanner  
+               boto: Amazon API  
+               netaddr: Used for check rules in the security groups  
+               jinja2: Report generation  
+               lxml: xml parser  
+               pymongo: mongo db interaction  
+               pycrypto: cryptographic functions  
  
  
 ###Windows Installation:###
@@ -38,12 +38,12 @@ Install Python environment
 Install dependencies
   5. Go to python scripts folder (C:\Python27\scripts) and run: 
 
-	pip install qualysapi  
-	pip install boto                 
-	pip install netaddr
-	pip install jinja2
-	pip install lxml
-	pip install pymongo
+	pip install qualysapi    
+	pip install boto                
+	pip install netaddr  
+	pip install jinja2  
+	pip install lxml  
+	pip install pymongo  
  
 Install compiler (pycrypto requires to be compiled) 
 6. Install MS Visual C++ 2008 express edition          (http://go.microsoft.com/?linkid=7729279)
@@ -55,33 +55,33 @@ Delete config file
 8. Delete config.ini this is a config file that is automatically created the first time you run the script and enter username/password and is found in the same directory that the script executes from
 
 Install Mongo DB
-  9.           
-	unzip mongo distribution
+          
+	unzip mongo distribution  
 	
-	# Run mongo: 
-	mongod.exe --dbpath C:\Mongo\data
+	# Run mongo:  
+	mongod.exe --dbpath C:\Mongo\data  
  
  
 ###Linux Installation: (verified on A360 hardened CentOS 6.5)###
  
 Install dependencies
-  1.            
-	sudo easy_install pip
-	sudo pip install qualysapi
-	sudo pip install --upgrade qualysapi
-	sudo pip install boto
-	sudo pip install netaddr
-	sudo pip install jinja2
-	sudo pip install pymongo
-	sudo yum groupinstall 'Development Tools'
-	sudo yum install -y python-devel bzip2-devel libxml2-devel libxslt-devel libffi-devel libevent-devel
-	sudo pip install lxml
+           
+	sudo easy_install pip  
+	sudo pip install qualysapi  
+	sudo pip install --upgrade qualysapi  
+	sudo pip install boto  
+	sudo pip install netaddr  
+	sudo pip install jinja2  
+	sudo pip install pymongo  
+	sudo yum groupinstall 'Development Tools'  
+	sudo yum install -y python-devel bzip2-devel libxml2-devel libxslt-devel libffi-devel libevent-devel  
+	sudo pip install lxml  
  
 Install Pycrypto
-  2.            
-  	mount /tmp -o remount,exec,rw
-	sudo pip install pycrypto
-	mount /tmp -o remount,noexec,rw
+            
+  	mount /tmp -o remount,exec,rw  
+	sudo pip install pycrypto  
+	mount /tmp -o remount,noexec,rw  
  
 Note: Because dependencies where installed with sudo, python commands that requires the dependencies will have to run with sudo.
  
