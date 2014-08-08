@@ -90,7 +90,7 @@ Configure Mongo
 The scripts interact with an external MongoDB to ensure AWS assets are tracked by instance ID. # we need more details
  
 Update the Mongo Config 
-⋅⋅1. Edit mongo_config.py
+  1. Edit mongo_config.py
 
 	# Update Mongo (yes/no)
 	available='no' 
@@ -114,7 +114,7 @@ Update the Mongo Config
 Build Configuration Files
  
 Update Asset Groups  configuration file
-⋅⋅1. Edit asset_groups.py   (These asset groups are used to store all internal/external IP's as well as IP's for ad-hoc scans)
+  1. Edit asset_groups.py   (These asset groups are used to store all internal/external IP's as well as IP's for ad-hoc scans)
  	
  	# Asset group name that holds all external IP addresses in EC2
        	external='A360-Test-External'
@@ -137,7 +137,7 @@ Update Asset Groups  configuration file
  
  
 Update Authentication records configuration file
-2. Modify authentication.py         (The authentication config defines the different authentication records that can be defined in the ad-hoc scans defined with –i option in cmd line. There is a default authentication record that will be used if none other is specified. Records are defined as Windows (win) or Linux (nix) )
+  2.Modify authentication.py         (The authentication config defines the different authentication records that can be defined in the ad-hoc scans defined with –i option in cmd line. There is a default authentication record that will be used if none other is specified. Records are defined as Windows (win) or Linux (nix) )
  
                # default_auth='LA360USER'
                nix_A360USER='280393'
@@ -147,33 +147,33 @@ Update Authentication records configuration file
                win_A360USER='279774'
  
 Update Mail Relay configuration file
-1. Modify mail_config.py                              (this is required to send notifications of scans and reports. For EC2 scans it enumerates all instances, by region and identifies small/micro and non-running instances which will be filtered from scanning per AWS terms of use)
+  1.Modify mail_config.py (this is required to send notifications of scans and reports. For EC2 scans it enumerates all instances, by region and identifies small/micro and non-running instances which will be filtered from scanning per AWS terms of use)
  
-               #IP address of the mail server
-               server='10.151.16.251'                                                                                                                                                                                                                                                  
+	#IP address of the mail server
+        server='10.151.16.251'                                                                                                                                                                                                                      
+        #Message characteristic of the amazon instances's report. 
+       	reports_send_from='ec2_report_generator@autodesk.com'                                                                                                                                 
+        reports_subject='Qualys Amazon EC2 Reports (DO NOT REPLY)'
+        reports_send_to='marcelo.dominguez@autodesk.com,dan.stewart@autodesk.com'
+        reports_text='Those reports were generated automatically, please DO NOT REPLY'
  
-               #Message characteristic of the amazon instances's report. 
-               reports_send_from='ec2_report_generator@autodesk.com'                                                                                                                                 
-               reports_subject='Qualys Amazon EC2 Reports (DO NOT REPLY)'
-               reports_send_to='marcelo.dominguez@autodesk.com,dan.stewart@autodesk.com'
-               reports_text='Those reports were generated automatically, please DO NOT REPLY'
- 
-               #Message characteristic of the scan reports
-               scan_send_from='ec2_report_generator@autodesk.com'
-               scan_send_to='marcelo.dominguez@autodesk.com'
-               scan_text='These report were generated automatically, please DO NOT REPLY'
+        #Message characteristic of the scan reports
+        scan_send_from='ec2_report_generator@autodesk.com'
+        scan_send_to='marcelo.dominguez@autodesk.com'
+        scan_text='These report were generated automatically, please DO NOT REPLY'
  
  
 Update Report Template configuration file
-1. Modify report_templates.py    (Defines the VM and PC templates that will be used for report generation. ID's of the templates can be found in Qualys)
+  1.Modify report_templates.py    (Defines the VM and PC templates that will be used for report generation. ID's of the templates can be found in Qualys)
  
-               #VM Report Template: A360 Brief Summary Sev 1-5 (excluding non-running kernels)
-               vm_template='1671283'
-               #PC Report Template: A360 Benchmark Reference Failed Checks Only
-               pc_template='1654795'
+	#VM Report TemplateName: A360 Brief Summary Sev 1-5 (excluding non-running kernels)
+        vm_template='1671283'
+        
+	#PC Report Template Name: A360 Benchmark Reference Failed Checks Only
+        pc_template='1654795'
  
 Update  Scan Profile configuration file
-1. Modify scan_profile.py                 (Defines the scan option profiles used for VM and PC scans and the policy ID's used for PC reporting)
+  1.Modify scan_profile.py (Defines the scan option profiles used for VM and PC scans and the policy ID's used for PC reporting)
  
                #PC Scan Option Profile: A360 Policy Compliance Scan
                pc_scan='739787'
