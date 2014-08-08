@@ -92,12 +92,23 @@ The scripts interact with an external MongoDB to ensure AWS assets are tracked b
 Update the Mongo Config 
 1 edit the file mongo_config.py (provide full path)
 
-	available='no' If value is 'yes',the script will update the mongo database, other values will ignore the database
-	ip='127.0.0.1' IP values where the MongoDB is locates|
-	port=27017     Port where is running the mongo service|
-	client_name='MyAWSInfo' Name of the client/database in mongo|                                
-	collection_name='ec2_info'Collection name where instance info is stored|
-	collection_timestamp='ec2_time' Collection name where the timestamp of the las updated info is stores|
+	# Update Mongo (yes/no)
+	available='no' 
+	
+	# MongoDB IP address
+	ip='127.0.0.1'
+	
+	# MongoDB Port
+	port=27017
+	
+	# Name of the client/database in MongoDB
+	client_name='MyAWSInfo'
+	
+	# Collection name where instance info is stored
+	collection_name='ec2_info'
+	
+	# Collection name where timestamp of last update for an instance is stored
+	collection_timestamp='ec2_time' 
  
  
 Build Configuration Files
