@@ -54,16 +54,18 @@ Install pycrypto
 	pip install pycrypto
  
 Delete config file  
-Delete config.ini this is a config file that is automatically created the first time you run the script and enter username/password and is found in the same directory that the script executes from
+
+	Delete config.ini  
+
+(this is a config file that is automatically created the first time you run the script and enter username/password and is found in the same directory that the script executes from)
 
 Install Mongo DB  
           
 	unzip mongo distribution    
-	
 	# Run mongo:  
 	mongod.exe --dbpath C:\Mongo\data  
- 
- 
+
+
 ###Linux Installation: (verified on A360 hardened CentOS 6.5)###
  
 Install dependencies
@@ -90,8 +92,10 @@ Note: Because dependencies where installed with sudo, python commands that requi
 Delete config file  
 Delete .qcrc (whats full path ?) this is a config file that is automatically created the first time you run the script and enter username/password and is found in the same directory that the script executes from
 
-Install Mongo DB  
+Install Mongo DB 
+
 	sudo pip install pymongo  
+	
 
 ##DEFINE CONFIGURATION:##  
 
@@ -218,13 +222,17 @@ Update  Scan Appliance configuration file
 
 Asset Group CSV file requirements (The script assume there is a header in the first line, which is ignored in the script execution)
 
->	CSV fields: Organization,Environment,Product,Account Type,Existing AG  
->	
->	Organization: The Autodesk unit that owns the assets (ACS/A360/EIS etc)  
->	Environment: The environment that the assets reside in (Production/Stage/Development)  
->	Product: The name of the product to which the assets belong  
->	Account Type: Where the assets reside (VPC/EC2/ blank is datacenter)  
->	Existing AG: (optional): If there is an existing asset group that contains Ips and you want to migrate to the new >	standard, define the group name and IP's will be added to the new group  
+Organization | Environment | Product | Account Type | Existing AG |
+----------- | ------------- | --- | ------ | ---------------------|
+The Autodesk unit that owns the assets (ACS/A360/EIS etc) | The environment that the assets reside in (Production/Stage/Development) | The name of the product to which the assets belong  | Where the assets reside (VPC/EC2/ blank is datacenter) | If there is an existing asset group that contains Ips and you want to migrate to the new 	standard, define the group name and IP's will be added to the new group |
+	
+	
+	
+	Organization:  
+	Environment:   
+	Product: 
+	Account Type:  
+	Existing AG: (optional):  
 
 1.1 Script excecution  
 	
@@ -246,15 +254,6 @@ AccountName | AccountNumber | Key | Secret | Asset Group Name
 ----------- | ------------- | --- | ------ | ----------------     
 Name of the AWS account | The account number of the AWS account | The iam key for the AWS account | The iam secret for the AWS account | Defines the name of the asset group that will be updated  
  
- 
- 
- 
-AccountName:  (example Stage_Storage)  
-AccountNumber:   
-Key:   
-Secret:  
-(optional) Asset Group Name:   
-
 
 2.1 Script excecution  
 	
